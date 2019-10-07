@@ -1,63 +1,8 @@
 import React,{Component} from 'react' 
-import { makeStyles } from '@material-ui/core/styles'
+import Board from './Board'
 import Button from '@material-ui/core/Button'
 
-const styles = makeStyles(theme => ({
-    btn: {
-        background: "#fff",
-        border: "1px solid #999",
-        cssFloat: "left",
-        fontSize: "24px",
-        fontWeight: "bold",
-        lineHeight: "34px",
-        height: "34px",
-        marginRight: "-1px",
-        marginTop: "-1px",
-        padding: "0",
-        textAlign: "center",
-        width: "34px"
-    }
-}))
-
-function Square(props) {
-    let classes = styles() 
-    return <Button className={classes.btn} onClick={props.onClick}>{props.value}</Button>
-}
-
-class Board extends Component { 
-    renderSquare(i) { 
-        return (
-          <Square 
-            onClick={() => this.props.onClick(i)}
-            value = {this.props.squares[i]}
-          />
-        );
-    }
-    render() { 
-        let squares = []
-        for(let i=0;i<16;i+=4) {
-            let row = []
-            for(let j=i;j<i+4;j++) {
-                row.push(j);
-            }
-            squares.push(row)
-        }
-        return <div>
-            {squares.map((row, index) => { 
-            return <div key={index}>
-                {row.map((square, index) => {
-                    return <React.Fragment key={index}>
-                        {this.renderSquare(square)}
-                    </React.Fragment>
-                })}
-            </div>
-            })}
-        </div>
-    }
-}
-
-class TicTacToe extends Component {
-    
+class TicTacToe extends Component {    
     constructor(props) {
         super(props); 
         this.state = {
