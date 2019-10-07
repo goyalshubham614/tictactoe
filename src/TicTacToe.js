@@ -34,7 +34,6 @@ class Board extends Component {
         );
     }
     render() { 
-        console.log(this.props)
         let squares = []
         for(let i=0;i<16;i+=4) {
             let row = []
@@ -57,7 +56,7 @@ class Board extends Component {
     }
 }
 
-class Connect4 extends Component {
+class TicTacToe extends Component {
     
     constructor(props) {
         super(props); 
@@ -128,4 +127,4 @@ function calculateWinner(squares) {
     return null;
   }
 
-export default Connect4;
+export default TicTacToe;
